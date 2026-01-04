@@ -2,8 +2,10 @@
 name = "mev_tools_core"
 version = "0.1.0"
 edition = "2021"
+description = "Helper lib for creating mev bots"
+license = "MIT"
+repository = "https://github.com/0xfourzerofour/mev_tools"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 alloy.workspace = true
