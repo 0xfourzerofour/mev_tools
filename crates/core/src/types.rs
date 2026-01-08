@@ -17,6 +17,12 @@ pub trait Collector<E>: Send + Sync {
     async fn get_event_stream(&self) -> Result<CollectorStream<'_, E>>;
 }
 
+/// Reducer trait for combining multiple collector events into unified outputs.
+pub trait CollectorReducer<EIn, EOut, State>: Send + Sync + 'static {
+    /// Apply an incoming event to internal state and emit zero or more outputs.
+    fn apply(&mut self, state: &mut State, event: EIn) -> Vec<EOut>;
+}
+
 /// Strategy trait, which defines the core logic for each opportunity.
 ///
 /// # Type Parameters
